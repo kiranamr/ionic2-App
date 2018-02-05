@@ -1,0 +1,7 @@
+{
+    "name": "GroceryApp",
+    "description": "Grocery app",
+    "repository": "https://github.com/kiranamr/ionic2-App.git",
+    "logo": "http://pereless360.com/img/SP/Ghost/360-logo-white.png",
+    "keywords": ["ionic2", "heroku", "pereless360"]
+}
