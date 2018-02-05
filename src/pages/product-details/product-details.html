@@ -1,0 +1,66 @@
+
+<ion-header >
+
+  <ion-navbar  color="prima">
+      <ion-buttons left>
+          
+          <button  ion-button icon-only (click)="back()">
+                  <img  height="80" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+                </button>
+   </ion-buttons>
+    <ion-title >
+       GroceryApp
+      <!--<ion-icon name="md-checkbox-outline"></ion-icon>-->
+    </ion-title>
+    
+     <ion-buttons end>
+      <button ion-button icon-left (click)="openCart()">
+        <ion-icon name="cart"></ion-icon>
+        {{ (cartService.cartItems | async)?.length }} 
+
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+<ion-content ></ion-content>
+
+<ion-content *ngIf='product'  class="bg-style"  >
+
+  <br>
+  <div class="container">
+      <div class="card card-container">
+         <h1>{{product.name}} details</h1> 
+          <br>
+      <img width="200" height="200" (click)="showDetails(product)" src={{product.image}}/>
+    
+
+
+    
+      <h2> <b>{{product.name}} </b> </h2>
+      <br>
+      <p> {{product.discription}} </p>
+   
+  
+
+        <button ion-button (click)="addToCart()"   color="danger"><ion-icon name="ios-cart" ></ion-icon>Add to cart</button>
+      
+          
+          
+        
+      
+    
+
+  
+  </div>
+  </div>
+
+    
+
+  <br>
+  <br>
+</ion-content>
+<ion-footer text-center>
+  <page-footer></page-footer>
+</ion-footer>

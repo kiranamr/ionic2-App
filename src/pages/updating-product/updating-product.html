@@ -1,0 +1,110 @@
+<!--
+  Generated template for the ProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>     <ion-navbar  color="prima">
+    <ion-buttons left>
+    
+        <button ion-button icon-only (click)="back()">
+            <img  height="80" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+          </button>
+    </ion-buttons>
+    <ion-title >
+      GroceryApp
+      <!--<ion-icon name="md-checkbox-outline"></ion-icon>--> 
+    </ion-title>
+    <ion-title *ngIf='product'>
+      <!--<ion-icon name="md-checkbox-outline"></ion-icon>--> 
+    </ion-title>
+     <ion-buttons left>
+     
+    </ion-buttons>
+
+  </ion-navbar>
+  </ion-header>
+
+
+
+
+
+
+<ion-content>
+  <br>
+  <div class="container">
+    <div class="card card-container">
+        <h1>{{product.name}} details</h1>  
+    <ion-list>
+      <br>
+      
+       
+        
+            <ion-item>
+                <ion-label floating>Category</ion-label>
+                <ion-input disabled="true"  type="text" [(ngModel)]="product.category"></ion-input>
+              </ion-item>
+           
+         
+       <br>
+     <ion-item>
+        <ion-label floating>Product name</ion-label>
+       <ion-input  type="text" [(ngModel)]="product.name"  ></ion-input>
+     </ion-item>
+     <br>
+      Select image:
+     <ion-item>
+      
+      <input placeholder="Product image" type="file" id="uploadfile" (change)="changeListener($event)">
+    </ion-item>
+    <br>
+    <input type="hidden"[(ngModel)]="product.image" disabled="true"/>
+    <br>
+    
+     <ion-item>
+        <ion-label floating>Product description</ion-label>
+      <ion-textarea  [(ngModel)]="product.discription"></ion-textarea>
+    </ion-item>
+    <br>
+    <ion-item>
+        <ion-label floating>Product price</ion-label>
+        <ion-input  type="text" [(ngModel)]="product.price"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+          <ion-label floating>Product stock</ion-label>
+          <ion-input  type="number" [(ngModel)]="product.stock"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label floating>Product available</ion-label>
+            <ion-input  type="boolean" [(ngModel)]="product.available"></ion-input>
+          </ion-item>
+      <br>
+    
+          
+     
+        <!--  <ion-item>
+              <ion-label>Category</ion-label>
+              <ion-select [ngModel]="product.category"  name="product.category">
+                <ion-option [value]="null">
+                    None
+                </ion-option>
+                <ion-option *ngFor="let category of categoryRef$ | async" [value]="category">
+                    {{category.categoryName}}
+                </ion-option>
+            </ion-select>
+             
+            </ion-item>-->
+            <ion-row><ion-col></ion-col><ion-col><button full ion-button color="secondary" (click)="updateProduct(product.$key,product.category,product.name,product.discription,product.price,product.image,product.stock,product.available)">Update</button></ion-col><ion-col></ion-col></ion-row>
+    </ion-list>
+ 
+    
+    </div>
+  </div>
+  <br>
+ 
+ </ion-content>
+ <ion-footer> <page-footer></page-footer></ion-footer>
+
+ 

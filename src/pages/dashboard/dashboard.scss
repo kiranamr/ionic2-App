@@ -1,0 +1,45 @@
+page-dashboard {
+   
+    .profile {
+      
+        
+        
+        padding-top: 30px;
+        
+    }
+    
+    th {
+        width:125px;
+        text-align: center;
+        color: white;
+    }
+    td {
+        width:150px;
+        text-align: center;
+        
+    }
+    table{
+       
+    }
+    
+    td:nth-child(odd) {
+        background: rgb(250, 213, 238);
+    }
+    th {
+        background:rgb(150, 100, 100);
+    }
+   
+    
+    td:nth-child(even) {
+        background:white;
+    }
+    .hiddenText {
+        display: none;
+    }
+    .left{
+        float:left;
+      }
+      .right{
+          float:center;
+      }
+}

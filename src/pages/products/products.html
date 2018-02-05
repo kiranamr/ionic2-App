@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-navbar  color="prima">
+     
+      
+      <ion-buttons left>
+          
+              <button  ion-button icon-only (click)="openMenu('user')">
+                      <ion-icon name="menu"></ion-icon><img  height="80" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+                    </button>
+       </ion-buttons>
+    <ion-title>
+      Grocery App
+    
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-left (click)="openCart()">
+        <ion-icon name="cart"></ion-icon>
+        {{ (cartService.cartItems | async)?.length }} 
+
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content  class="bg-style" >
+
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="Search items"></ion-searchbar>
+
+  
+  <ion-item>
+      <ion-label floating>Category</ion-label>
+      <ion-select
+         
+         [(ngModel)]="category" (ngModelChange)="selectCategory(category||all)" name="category" >
+         <ion-option [value]="all">
+            all
+        </ion-option>
+         <ion-option  *ngFor="let category of categoryRef$ | async" [value]="category" >
+           
+            {{category.categoryName}}
+        </ion-option>
+      </ion-select>
+   </ion-item>
+<br>
+ <!--<ion-list>
+  <div *ngFor="let product of productListRef$ | async; let i = index">
+      <div ion-item>
+          <ion-thumbnail item-left>
+              <img (click)="showDetails(product)" src="{{product.image}}">
+          </ion-thumbnail>
+          <br>
+          <p item-down (click)="showDetails(product)">{{product.name}}</p>
+          <p item-bottom (click)="showDetails(product)"> Rs {{product.price}}</p>
+          <button item-right (click)="addToCart(product)" >Add to cart</button>
+          
+      </div>
+  </div>
+</ion-list>-->
+  <ion-list>
+        <ion-row  >
+                <ion-col  col-sm-12 col-md-2 *ngFor="let product of productListRef$ | async"  >
+                  <ion-item style="background-color: rgb(231, 228, 225)"><img height="150" width="160" [src]="product.image" (click)="showDetails(product)"/>
+                    <br>
+                    <font (click)="showDetails(product)"> <ion-badge color="light"> Rs {{product.price}} </ion-badge></font>
+                    <br><font (click)="showDetails(product)" >{{product.name}}</font>
+                    <br>
+                    <button ion-button clear  (click)="addToCart(product)">
+                          <ion-icon style=" font-size: 10px;" name="cart" color="danger"></ion-icon>
+                        <font style=" font-size: 8px;"  >Add to cart</font>
+                      </button></ion-item>
+                  
+                  </ion-col></ion-row>
+      <!--<ion-grid no-padding class="home-gallery">
+          <ion-row>
+              <ion-col col-2 *ngFor="let product of productListRef$ | async">
+                  <div class="products_list">
+                      <div style="border: 1px solid; height: 20%; background-color:#E8E6E6 "   class="products_list_img">
+                         
+                        <div><img height="150" width="160" [src]="product.image" (click)="showDetails(product)"/><font (click)="showDetails(product)"> <ion-badge color="light"> Rs {{product.price}} </ion-badge></font></div>
+                          <br><div><font (click)="showDetails(product)" >{{product.name}}</font></div>
+                          
+                          <br>
+                          <div><button ion-button clear  (click)="addToCart(product)">
+                              <ion-icon style=" font-size: 10px;" name="cart" color="danger"></ion-icon>
+                            <font style=" font-size: 10px;"  >Add to cart</font>
+                          </button></div>
+                          
+                      </div>    
+                  </div>
+              </ion-col>
+          </ion-row>
+      </ion-grid>-->
+
+   <!-- <ion-item *ngFor="let product of productListRef$ | async">
+
+        <ion-thumbnail item-start (click)="showDetails(product)" >
+          <img src={{product.image}}>
+        </ion-thumbnail>
+
+
+        <ion-row>
+          <h2 (click)="showDetails(product)" >{{product.name}}</h2>
+        </ion-row>
+        <ion-row>
+            <p (click)="showDetails(product)"> <ion-badge color="light"> Rs {{product.price}} </ion-badge></p>
+        </ion-row>
+
+      
+        
+        <button ion-button clear item-end (click)="addToCart(product)">
+            <ion-icon style=" font-size: 25px;" name="cart" color="danger"></ion-icon>
+            Add to cart
+        </button>
+      </ion-item>-->
+  </ion-list>
+
+ 
+  
+</ion-content>
+<ion-footer><page-footer></page-footer></ion-footer>
+    

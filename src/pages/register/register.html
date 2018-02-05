@@ -1,0 +1,57 @@
+
+ 
+<ion-content  padding>
+    <ion-row>
+        <ion-col></ion-col>
+        <ion-col width-67 >
+          <img height="150" width="200" src="assets/icon/download.png"/>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    <div class="container">
+        <div class="card card-container">
+            <ion-list class="form-signin"  inset>
+    <form (ngSubmit)="register()" #registerForm="ngForm" >
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            
+            <ion-item>
+              <ion-input [(ngModel)]="email" type="email" ngModel #eMail="ngModel" name="email"  placeholder="Examples@gmail.com"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" required required></ion-input>
+            </ion-item>
+             <div *ngIf="eMail.errors?.required && eMail.touched">
+      Email is required
+    </div>
+    <div *ngIf="eMail.errors?.pattern && eMail.touched">
+      Not valid email
+    </div>
+    <br>
+    
+            <ion-item>
+              <ion-input [(ngModel)]="password" type="password" ngModel #ePassword="ngModel" pattern="[A-Za-z0-9._%@]{8,}" placeholder="Password" name="password"  required></ion-input>
+            </ion-item>
+            <div *ngIf="ePassword.errors?.required && ePassword.touched">
+              Password is required
+            </div>
+            <div *ngIf="ePassword.errors?.pattern && ePassword.touched">
+              Not valid Password (number/lowercase/uppercase/specielcharecter, length is 8 0r more)
+            </div>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button color="dark" ion-button class="submit-btn" full type="submit" >Register</button>
+          
+          
+        </ion-col>
+      </ion-row>
+      
+      
+    </form>
+    <ion-row><button ion-button block color="login_pasive_button" outline (click)="gotoSignIn()" > signin </button></ion-row>
+    </ion-list>
+  </div></div>
+</ion-content>

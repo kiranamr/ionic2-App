@@ -1,0 +1,27 @@
+page-admin-order-view {
+     th {
+        width:125px;
+        text-align: center;
+        color: white;
+    }
+    td {
+        width:150px;
+        text-align: center;
+        
+    }
+    table{
+       
+    }
+    
+    td:nth-child(odd) {
+        background: rgb(230, 207, 220);
+    }
+    th {
+        background:rgb(139, 95, 95);
+    }
+   
+    
+    td:nth-child(even) {
+        background:white;
+    }
+}

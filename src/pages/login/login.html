@@ -1,0 +1,44 @@
+
+
+<ion-content  padding>
+    <ion-row>
+        <ion-col></ion-col>
+        <ion-col width-69 >
+          <img height="150" width="200" src="assets/icon/download.png"/>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    <div class="container">
+        <div class="card card-container">
+            <ion-list class="form-signin"  inset>
+      <form  #registerForm="ngForm">
+        <ion-row>
+          <ion-col>
+            <ion-list >
+              <br>
+              <ion-item>
+                <ion-input [(ngModel)]="email" type="text" placeholder="Email" name="email" required></ion-input>
+              </ion-item>
+              <br>
+              
+              <ion-item>
+                <ion-input [(ngModel)]="password" type="password" placeholder="Password" name="password" required></ion-input>
+              </ion-item>
+              
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col class="signup-col">
+            <button ion-button color="dark" full (click)="login()" >Login</button>
+            <button ion-button block color="login_pasive_button" outline (click)="createAccount()" > Create new account</button>
+            <button ion-button block color="login_pasive_button" clear (click)="resetPassword()" >Reset Password</button>
+          </ion-col>
+        </ion-row>
+        
+      </form>
+    </ion-list>
+    </div>
+    </div>
+  </ion-content>

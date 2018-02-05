@@ -1,0 +1,81 @@
+<ion-header>
+    
+        <ion-navbar  color="prima">
+          
+                <!--    <img alt="logo" height="80" width="300"  style="border-radius: 100% ;margin-top: 15px;margin-left: 20px" src="assets/icon/download.png" ></ion-col><ion-col><ion-buttons style="margin-top: 40px" left>
+                       
+                -->
+                
+                <ion-title><h1>GroceryApp</h1></ion-title>
+                  <ion-buttons left>
+                      
+                          <button  ion-button icon-only (click)="openMenu('main')">
+                                  <ion-icon name="menu"></ion-icon><img  height="80" width="120"  style="border-radius: 100% " src="assets/icon/download.png" />
+                                </button>
+                   </ion-buttons>
+                  
+                 
+                </ion-navbar>
+    </ion-header>
+
+
+<ion-content padding>
+ <ion-row width="100%">
+   <ion-col><br><br><div class="container">
+      <div class="card card-container">
+          <ion-list class="form-signin"  inset>
+              <ion-row>
+                  <ion-col>
+                    <ion-list>
+                      <br>
+                      <h3>Add new category name</h3>
+                      <br>
+ 
+  <ion-item>
+    
+    <ion-input type="text" [(ngModel)]="category.categoryName" placeholder="Category name"></ion-input>
+  </ion-item>
+ <br>
+  
+ 
+  </ion-list>
+  </ion-col>
+ 
+  </ion-row>
+  <ion-row><ion-col></ion-col><ion-col><button ion-button color="secondary" (click)="addCategory(category)">Save</button></ion-col><ion-col></ion-col></ion-row>
+ 
+ </ion-list>
+ </div>
+ </div>
+ </ion-col>
+   <ion-col class="form-signout" >
+    <br>
+           <ion-list   inset>
+               <ion-row>
+                 
+                 
+                   <ion-col>
+                     
+                      <h3><u>Category details:-</u></h3>
+                      <br>
+                     <ion-list>
+  
+   
+   <ion-item *ngFor="let item of categoryListRef$ | async" >
+       <p><strong>{{item.categoryName}}</strong>
+        </p> 
+    </ion-item>
+   </ion-list>
+   </ion-col>
+   </ion-row>
+  
+  </ion-list>
+  </ion-col>
+ </ion-row>
+    
+  
+   
+</ion-content>
+<ion-footer text-center>
+    <page-footer></page-footer>
+</ion-footer>

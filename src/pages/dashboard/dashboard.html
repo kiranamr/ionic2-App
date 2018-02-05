@@ -1,0 +1,112 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header >
+    <ion-navbar  color="prima">
+          
+        <!--    <img alt="logo" height="80" width="300"  style="border-radius: 100% ;margin-top: 15px;margin-left: 20px" src="assets/icon/download.png" ></ion-col><ion-col><ion-buttons style="margin-top: 40px" left>
+               
+        -->
+        
+        <ion-title><h1 >GroceryApp</h1></ion-title>
+          <ion-buttons   left>
+              
+                  <button  ion-button icon-only (click)="openMenu('main')">
+                          <ion-icon name="menu"></ion-icon><img  height="80" width="120"  style="border-radius: 100% " src="assets/icon/download.png" />
+                        </button>
+           </ion-buttons>
+           </ion-navbar>
+    </ion-header>
+
+
+    <ion-content  padding >
+        
+       
+        <div  *ngIf="(productListRef$ | async)?.length == 0">
+            <span class="search_no_results">
+               <h3 align="center">No Products to display
+                 <br>
+                 
+                  <img  height="100" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+            <br>
+          
+               </h3> 
+                       </span>
+        </div>
+      
+      
+      <br>
+       <ion-list *ngIf="(productListRef$ | async)?.length != 0">
+         <div  ><h4 align="center">Dashboard</h4>
+            <table border="1" style="overflow:scroll; -webkit-overflow-scrolling:touch"  align="center" >
+               
+                 
+               <thead>
+                  <tr>
+                    <th>Sl no</th>
+                     <th>Name</th>
+                    <!-- <th>Description</th>
+                     <th>Image</th>-->
+                     
+                     <th>Price</th><th>Stock</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
+                  </tr>
+               </thead>
+               
+               <tbody *ngFor="let item of productListRef$ | async;let i=index" >
+                  <tr>
+                    <td>{{i+1}}</td>
+                     <td (click)="showDetails(item)"><font color="blue "><u>{{item.name}}</u></font>
+                      
+                       </td>
+                   <!--  <td>{{item.discription}}</td>
+                  
+                  
+                  
+                     <td><img height="60" width="180" [src]="item.image" /></td>-->
+                       
+                     <td>{{item.price}}</td>
+                     <td>{{item.stock}}</td>
+                     <td><button align="center" ion-button color="primary" (click)="editProduct(item.$key,item.category,item.name,item.discription,item.price,item.image,item.stock,item.available)" > <ion-icon name="md-create"></ion-icon></button></td>
+                     <td><button ion-button color="danger"  (click)="deleteProducts(item)"> <ion-icon name="ios-trash-outline"></ion-icon>  </button></td>
+                  </tr>
+               </tbody>
+              
+            </table></div>
+
+            <br>
+            <br>
+            <br>
+       </ion-list>
+          
+     
+      
+        
+      <!--  <div class="row header">
+            <div class="col">Name</div>
+            <div class="col">Description</div>
+            <div class="col">Image</div>
+            <div class="col">Price</div>
+            <div class="col"></div>
+            
+          </div>
+         
+          <div class="row" *ngFor="let item of productListRef$ | async">
+              <div class="col">{{item.name}}</div>
+              <div class="col">{{item.discription}}</div>
+              <div class="col">{{item.image}}</div>
+              <div class="col">{{item.price}}</div>    
+              <div class="col">{{item.stock}}</div> 
+            </div>
+      
+          -->
+     
+</ion-content>
+<ion-footer text-center >
+   <page-footer></page-footer>
+</ion-footer>

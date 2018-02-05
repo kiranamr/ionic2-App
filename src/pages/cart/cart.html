@@ -1,0 +1,79 @@
+<ion-header >
+
+  <ion-navbar  color="prima">
+        <ion-buttons left>
+    
+                <button ion-button icon-only (click)="back()">
+                    <img  height="80" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+                  </button>
+            </ion-buttons>
+    <ion-title>
+        <ion-icon name="basket"></ion-icon>GroceryApp Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-style">
+    <br>
+        <div class="container">
+                <div class="card card-container">
+    
+        <ion-list>
+
+        <ion-item  *ngFor="let item of cart | async">
+            <ion-thumbnail item-left>            
+            <img src="{{item.image}}">
+            <br>
+            <h2>{{item.name}}</h2>
+            <br>
+            <p>Rs {{item.price}} x {{item.quantity}} =Rs {{item.price * item.quantity}}</p>
+            <table><tr><td><button ion-button clear (click)="increment(item)" >
+                <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropup-circle"></ion-icon>
+  
+                
+              </button></td><td><button ion-button clear > {{item.quantity}}</button></td><td><button ion-button clear (click)="decrement(item)" >
+                <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropdown-circle"></ion-icon>
+              </button></td><td><button style=" font-size: 25px;" ion-button clear (click)="remove(item)" >
+                <ion-icon color="danger" name="ios-remove-circle"></ion-icon>
+              </button></td></tr></table>
+            
+            <ion-item-divider></ion-item-divider>
+            
+            
+            </ion-thumbnail>
+          
+           
+            
+          
+        </ion-item>
+        
+        <ion-item *ngIf="(cart | async)?.length" >
+            <h2>Grand Total</h2> 
+            <h2 item-right >Rs.{{cartService.cartAmount}}</h2>
+        </ion-item>
+          
+        <ion-item align="center"  *ngIf="!(cart | async)?.length" >
+          <h2 align="center" class="center">Cart is empty<br><br>
+            <img  height="100" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+            <br>
+          <button  align="center" ion-button  color="primary" (click)="continue()">
+                  Continue shoping
+       </button> </h2> 
+        </ion-item>
+        
+        <br>
+        <button  fixed ion-button icon-start block color="light" *ngIf="(cart | async)?.length" (click)="checkout()">
+            <ion-icon name="ios-cart"></ion-icon>
+            Checkout
+        </button>    
+
+        </ion-list>
+</div>
+</div>
+    
+    </ion-content>
+    <ion-footer text-center>
+        <page-footer></page-footer>
+    </ion-footer>
+    

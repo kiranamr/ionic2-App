@@ -1,0 +1,107 @@
+<ion-header>
+
+  <ion-navbar  color="prima">
+      <ion-buttons left>
+    
+          <button ion-button icon-only (click)="openMenu('user')">
+              <ion-icon name="menu"></ion-icon><img  height="80" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+            </button>
+      </ion-buttons>
+    <ion-title><ion-icon name="ios-flash"></ion-icon>GroceryApp Orders</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content   class="bg-style" >
+  <br>
+    <div class="container">
+        <div class="card card-container">
+            <div  *ngIf="(orders | async)?.length == 0">
+                <span class="search_no_results">
+                   <h3 align="center">No orders yet
+                     <br>
+                     
+                      <img  height="100" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+                <br>
+              <button  align="center" ion-button  color="primary" (click)="continue()">
+                      Continue shoping
+           </button>
+                   </h3> 
+                           </span>
+            </div>
+            
+    <ion-list *ngFor="let order of orders | async">
+      
+            
+            
+              <div ><img height="150" width="160" [src]="order.image" /></div>
+        
+        <div  ><table  style="overflow:scroll;width:100%; -webkit-overflow-scrolling:touch"  align="center" >
+          
+            
+            
+               <tr>
+                 <td style="width:15px"><b>Name</b> </td><td> <b>:</b> </td><td> {{order.name}}</td>
+
+               
+               </tr>
+            
+            <br>
+            
+               <tr>
+                  <td style="width:15px"><b>Delivery details </b> </td><td> <b>:</b> </td>
+                 <td> {{order.delivery}}</td>
+                 
+                 
+                 
+               </tr>
+               <br>
+            <tr>
+              <td style="width:15px"><b>Price per item </b></td><td> <b>:</b> </td><td> Rs {{order.price}}</td>
+            </tr>
+            <br>
+            <tr><td style="width:15px"><b>Quantity </b></td><td> <b>:</b> </td><td> {{order.quantity}}</td></tr><br>
+            <tr><td style="width:15px"><b>Total price</b>  </td><td> <b>:</b> </td> <td> Rs {{order.price}}*{{order.quantity}}=Rs {{order.price * order.quantity}}</td></tr>
+           
+         </table>
+          
+        
+       
+        <br>
+        <button ion-button color="danger"  (click)="deleteOrder(order)"> <ion-icon name="ios-trash-outline"></ion-icon> Cancel order </button>
+       <ion-item-divider></ion-item-divider>
+      </div>
+
+          <!--  <ion-item-options side="right">
+                
+                <button ion-button color="danger"  (click)="deleteOrder(order)"> <ion-icon name="ios-trash-outline"></ion-icon> Cancel order </button>
+            </ion-item-options>-->
+        
+    <!--  <ion-item *ngFor="let order of orders | async" >
+        
+        <ion-thumbnail item-start >
+          <img src={{order.image}}>
+        </ion-thumbnail>
+
+        <h2>{{order.name}}</h2>
+        <p>
+          <ion-badge color="danger"> Rs {{order.price}} </ion-badge> x {{order.quantity}} = Rs {{order.price * order.quantity}}
+        </p>
+        <br>
+        <ion-item style="margin: -20px;">
+          <ion-range readonly disabled min="0" max="3" step="1" snaps="true"  color="danger" ngModel="{{order.status}}" >
+            <ion-icon range-left small color="danger" name="md-cart"></ion-icon>
+            <ion-icon range-right color="danger" name="md-home"></ion-icon>
+          </ion-range>
+        </ion-item>
+
+      </ion-item>-->
+    </ion-list>
+</div>
+</div>
+</ion-content>
+<ion-footer text-center>
+  <page-footer></page-footer>
+</ion-footer>

@@ -1,0 +1,132 @@
+page-catogoies {
+    .card {
+        background-color:rgb(235, 217, 217);;
+        /* just in case there no content*/
+        padding: 0px 0px 0px;
+        margin: 0 auto 0px;
+        margin-top: 0px;
+        /* shadows and rounded borders */
+         
+       
+       
+    }
+   
+    ion-item {
+        border-radius: 10px !important;
+      
+        margin-bottom: 10px;
+        background-color: #f6f6f6;
+        opacity: 0.7;
+         width:250px;
+         position:center;
+         justify-content: center;
+        font-size: 0.9em;
+       
+    }
+    
+   
+    
+    .card-container.card {
+        max-width: 500px;
+        padding: 10px 20px;
+    }
+    
+    
+    .form-signin button {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        z-index: 1;
+        position: relative;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .form-signout {
+        background-color:rgb(235, 217, 217);;
+        /* just in case there no content*/
+        padding: 0px 0px 0px;
+        margin: 0 auto 0px;
+        margin-top: 38px;
+        max-width: 800px;
+        padding: 10px 20px;
+    }
+    
+   
+       ion-content {
+       position:center;
+                background-color: map-get($colors, secondary);
+            }
+     
+            scroll-content {
+                display: flex;
+                flex-direction: column;
+            }
+     
+            ion-row {
+                position:center;
+                text-align: center;
+            }
+     
+            ion-item {
+                
+              
+              
+                background-color: #f6f6f6;
+               
+                 width:100%;
+                 height: 20px;
+                 
+               
+               
+            }
+            .center{
+             text-align:center;
+            }
+    
+            ion-input {
+            text-align: center;
+    
+            }
+          .in2{
+          text-align:center;
+          }
+     
+            ion-list {
+             text-align: center;
+    
+                
+            }
+     
+            .login-logo {
+                flex: 2;
+            }
+     
+            .login-form {
+                flex: 4;
+              
+                 
+                  text-align: center;
+            }
+     
+            .create-account {
+               
+              
+                 border-radius: 30px;
+                font-size: 0.9em;
+                
+                border: 1px solid #fff;
+            }
+     
+            .login-button {
+                border-radius: 30px;
+                font-size: 0.9em;
+                
+                border: 1px solid #fff;
+            }
+    
+    
+    
+
+
+}

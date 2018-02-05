@@ -1,0 +1,57 @@
+.bg-style {
+    background: #fcfaf9;
+   
+}
+
+ion-navbar {
+    height: 90px;
+     //by default 56px
+}
+.bar.bar-profile {
+    background-color: rgb(36, 3, 3);
+    height: 180px;
+}
+
+.profile {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    background-color: #00897B;
+    padding-top: 20px;
+    
+}
+
+.bar {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    padding-top: 15px;
+    
+}
+
+.profile .name {
+    color: #FFFFFF;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.profile-picture {
+    border-radius: 100%;
+}
+
+.menu .has-header
+{
+    top: 169px;
+}

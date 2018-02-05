@@ -1,0 +1,81 @@
+
+<ion-menu [content]="content"side="left" id="menu1">
+
+    <ion-header class="bar-profile">
+        
+        <div class="profile">
+            <img class="profile-picture" src="assets/icon/download.png" />
+           <h3><font color="white">Welcome</font></h3> 
+            
+        </div>
+             
+        
+     
+    
+  </ion-header>
+
+  <ion-content>
+      <br>
+      <br>
+    <ion-list>
+      <button ion-item menuClose="menu1" *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+  
+</ion-menu>
+<ion-menu [content]="content" side="left" id="menu2" >
+    
+        
+    
+    <ion-header class="bar-profile">
+        
+            <div class="profile">
+                <img class="profile-picture" src="assets/icon/download.png" />
+               <h3><font color="white">Welcome admin</font></h3> 
+                
+            </div>
+                 
+            
+         
+        
+      </ion-header>
+    <ion-content>
+        <ion-list text-center>
+            <button ion-item menuClose="menu1" *ngFor="let p of pagesAdmin" (click)="openPage(p)">
+                {{p.title}}
+              </button>
+           <!-- <button ion-item menuClose="menu2" (click)="dashboard()">
+                        Dashboard
+            </button>
+            
+            <button ion-item menuClose="menu2" (click)="profile()">
+                Profile page
+            </button>
+            <button ion-item menuClose="menu2" (click)="category()">
+               Add new categary
+            </button>
+            <button ion-item menuClose="menu2" (click)="categoryinfo()">
+                Categaries information
+            </button>
+            <button ion-item menuClose="menu2" (click)="addproduct()">
+                  Add new product
+                </button>
+            
+            
+            
+            <button ion-item menuClose="menu2" (click)="LogOutfunction()">
+                <ion-icon name="log-out"></ion-icon>
+                Logout
+              </button>-->
+        </ion-list>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar color="sec">
+          
+        </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

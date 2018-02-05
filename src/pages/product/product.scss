@@ -1,0 +1,33 @@
+page-product {
+    .card {
+        background-color:rgb(235, 217, 217);
+        /* just in case there no content*/
+        padding: 10px 10px 10px;
+        margin: 0 auto 25px;
+        margin-top: 0px;
+        /* shadows and rounded borders */
+        
+      
+       
+    }
+    ion-item {
+        border-radius: 0px !important;
+      height: 20px;
+        margin-bottom: 10px;
+        background-color: #f6f6f6;
+        opacity: 0.7;
+         width:250px;
+         position:center;
+         justify-content: center;
+        font-size: 0.9em;
+       
+    }
+    
+   
+    
+    .card-container.card {
+        max-width: 450px;
+        padding: 10px 20px;
+    }
+    
+}

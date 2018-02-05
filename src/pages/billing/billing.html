@@ -1,0 +1,118 @@
+
+<ion-header>
+
+    <ion-navbar color="prima">
+            <ion-buttons left>
+    
+                    <button ion-button icon-only (click)="back()">
+                        <img  height="80" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+                      </button>
+                </ion-buttons>
+        <ion-title><ion-icon name="ios-card"></ion-icon>GroceryApp Bill </ion-title>
+
+      
+
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<br>
+<div class="container">
+        <div class="card card-container">
+    <ion-list radio-group [(ngModel)]="payment_mode">
+            <ion-item-divider color="light">Cart Details</ion-item-divider>
+            <ion-item  *ngFor="let item of cart | async">
+                    <ion-thumbnail item-left>            
+                    <img src="{{item.image}}">
+                    <br>
+                    <h2>{{item.name}}</h2>
+                    <br>
+                    <p>Rs {{item.price}} x {{item.quantity}} =Rs {{item.price * item.quantity}}</p>
+                    <button ion-button clear item-right (click)="increment(item)" >
+                      <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropup-circle"></ion-icon>
+        
+                      <button ion-button > {{item.quantity}}</button>
+                    </button>
+                    <button ion-button clear item-right (click)="decrement(item)" >
+                      <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropdown-circle"></ion-icon>
+                    </button>
+                    
+                    <button style=" font-size: 20px;" ion-button clear item-right (click)="remove(item)" >
+                      <ion-icon color="danger" name="ios-remove-circle"></ion-icon>
+                    </button>
+                    </ion-thumbnail>
+                  
+                   
+                    
+                  
+                </ion-item>
+                
+                <ion-item *ngIf="(cart | async)?.length" >
+                    <h2>Grand Total</h2> 
+                    <h2 item-right >Rs.{{cartService.cartAmount}}</h2>
+                </ion-item>
+                  
+                <ion-item *ngIf="!(cart | async)?.length" >
+                  <h2 class="center">Cart is empty    <br>
+                    <img  height="100" width="100"  style="border-radius: 100% " src="assets/icon/download.png" />
+              <br></h2>  
+                
+                  <button ion-button icon-left block color="primary" (click)="continue()">
+                         Continue shoping
+                </button>
+
+                </ion-item>
+                <br>
+        <ion-item-divider color="light">Payment Mode</ion-item-divider>
+        <ion-item>
+            <ion-label>Cash on delivery</ion-label>
+            <ion-radio checked="true" value="cod"></ion-radio>
+        </ion-item>
+
+    </ion-list>
+
+
+    <ion-list radio-group  [(ngModel)]="delivery_details">
+        <ion-item-divider color="light">Delivery Details   <ion-buttons end>
+            <button ion-button icon-left (click)="addAddress()">Add address details
+                <ion-icon name="ios-create"></ion-icon>
+            </button>
+        </ion-buttons></ion-item-divider>
+        
+        <ion-item-sliding *ngFor="let address of addresses | async">
+                <ion-item>
+                    <ion-label>  
+                        <h3> <b>Name: {{address.nickname}}</b></h3>
+                        <h4>Address: {{address.address}}</h4>
+                        <p>Landmark: {{address.landmark}}</p>
+                        <p>District/City: {{address.district}}</p>
+                        <p>State: {{address.state}}</p>
+                        
+                        <p>Pin : {{address.pincode}} </p>
+                        <p>Phone  : {{address.phone}} </p>
+                    </ion-label>
+                    <ion-radio value="{{'Name: '+ address.nickname+', Address: '+ address.address + ', Landmark:'+ address.landmark + ', District/City: '+address.district +', State: '+ address.state + ', Pin: ' + address.pincode + ', Phone : ' + address.phone}}."></ion-radio>
+                   
+                </ion-item>
+                <ion-item> <button ion-button color="primary" (click)="editAddress(address)" > <ion-icon name="md-create"></ion-icon> Edit </button>
+                    <button ion-button color="danger"  (click)="deleteAddress(address)"> <ion-icon name="ios-trash-outline"></ion-icon> Delete </button></ion-item>
+                <ion-item-options side="right">
+                    <button ion-button color="primary" (click)="editAddress(address)" > <ion-icon name="md-create"></ion-icon> Edit </button>
+                    <button ion-button color="danger"  (click)="deleteAddress(address)"> <ion-icon name="ios-trash-outline"></ion-icon> Delete </button>
+                </ion-item-options>
+            </ion-item-sliding>
+
+    </ion-list>
+
+    <button ion-button icon-left block color="secondary" (click)="pay()">
+            <ion-icon name="logo-rs"></ion-icon> Submit order
+    </button>
+</div>
+</div>
+</ion-content>
+<ion-footer text-center>
+    <page-footer></page-footer>
+    </ion-footer>
+    
